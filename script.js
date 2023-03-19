@@ -1,113 +1,93 @@
-let firstNumber = prompt("Enter first number");
-let secondNumber = prompt("Enter second number");
-
-function error(a, b) {
-  if (firstNumber === '' || secondNumber === '') {
-    alert("Error: Please enter a number");
-  }
+// Checking objects for emptiness //
+function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
 }
 
-function adding(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    return a + b;
-  } else {
-    alert("Error: Not a number");
-  }
+// The result of the call //
+function UsreInfo(name, age) {
+  return {
+    name: name,
+    age: age,
+    sayHello() {
+      console.log(`Hello, I am ${this.name}, I am ${this.age} years old`);
+    },
+  };
 }
 
-function subtracting(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    if (a < b) {
-      if (confirm("Are you sure you want to proceed with the operation?")) {
-        return a - b;
-      } else {
-        return a - b;
-      }
-    } else {
-      return a - b;
-    }
-  } else {
-    alert("Error: Not a number");
-    return a - b;
-  } 
+function getNameAndAge(user) {
+  return user.name + " " + user.age;
 }
 
-function multiplying(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    return a * b;
-  } else {
-    alert("Error: Not a number");
-  } 
+function sayUserHello(user) {
+  user.sayHello();
 }
 
-function dividing(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    if (b == 0) {
-      alert("Error: Division by 0 is impossible");
-    } 
-   else {
-      return a / b;
-    }
-  } else {
-    alert("Error: Not a number");
-  }
-}
+const user = UsreInfo("John", 24);
+sayUserHello(user);
 
-error(firstNumber, secondNumber);
 
-firstNumber = Number(firstNumber);
-secondNumber = Number(secondNumber);
 
-console.log(adding(firstNumber, secondNumber));
-console.log(subtracting(firstNumber, secondNumber));
-console.log(multiplying(firstNumber, secondNumber));
-console.log(dividing(firstNumber, secondNumber));
+// Calculator //
+const calculator = {
+  num1: 0,
+  num2: 0,
+  ask() {
+    this.num1 = Number(prompt("Введіть перше число"));
+    this.num2 = Number(prompt("Введіть друге число"));
+  },
+  sum() {
+    console.log(this.num1 + this.num2);
+  },
+  mul() {
+    console.log(this.num1 * this.num2);
+  },
+};
 
-const numbers = [firstNumber, secondNumber];
+calculator.ask(); // запитає користувача про введення 2 чисел
+calculator.sum(); // виведе суму збережених чисел
+calculator.mul(); // виведе добуток чисел
 
-function getMaxClosure() {
-  let max = -Infinity;
 
-  return function (number) {
-    if (typeof number === 'number' && number > max) {
-      max = number;
-    }
-    return max;
-  }
-}
 
-function MaxNumber(numbers) {
-  const getMax = getMaxClosure();
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number') {
-      getMax(number);
-    }
-  }
-  return getMax(-Infinity);
-}
 
-function MinNumber(numbers) {
-  let min = Infinity;
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number' && number < min) {
-min = number;
-}
-}
-return min;
-}
 
-console.log("Max number is: ", MaxNumber(numbers));
-console.log("Min number is: ", MinNumber(numbers));
 
-function MaxNumber(numbers) {
-  let max = -Infinity;
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number' && number > max) {
-      max = number;
-    }
-  }
-  return max;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const calculator = {
+//   num1: 0,
+//   num2: 0,
+//   ask() {
+//     this.num1 = Number(prompt("Введіть перше число"));
+//     this.num2 = Number(prompt("Введіть друге число"));
+//   },
+//   sum() {
+//     console.log(this.num1 + this.num2);
+//   },
+//   mul() {
+//     console.log(this.num1 * this.num2);
+//   },
+// };
+
+// calculator.ask(); // запитає користувача про введення 2 чисел
+// calculator.sum(); // виведе суму збережених чисел
+// calculator.mul(); // виведе добуток чисел
