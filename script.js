@@ -1,73 +1,113 @@
-// adding numbers //
-const numbers = [
-    28215,
-    27049, 
-    22591,
-    'namber', 
-    20017, 
-    15372, 
-    undefined, 
-    22486,
-    'test', 
-    24795, 
-    23914,
-    16191, 
-    15355
-]
+let firstNumber = prompt("Enter first number");
+let secondNumber = prompt("Enter second number");
 
-let sum = 0;
-const elementType = [];
-
-for (let i = 0; i < numbers.length; i++) {
-  const element = numbers[i];
-  
-  if (typeof element === 'number' && !isNaN(element)){
-    elementType.push(element);
-    sum += element;
+function error(a, b) {
+  if (firstNumber === '' || secondNumber === '') {
+    alert("Error: Please enter a number");
   }
 }
 
-console.log(elementType);
-console.log(sum);
-
-
-
-
-
-// min/max nambers //
-let min = numbers[0];
-let max = numbers[0];
-const elementType2 = [];
-
-for (let i = 1; i < numbers.length; i++) {
-  const element = numbers[i];
-
-  if (element < min) {
-    min = element;
-  }
-  if (element > max) {
-    max = element;
-  }
-
-  if (typeof numbers[i] === 'number' && !isNaN(numbers[i])) {
-    elementType2.push(numbers[i]);
+function adding(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  } else {
+    alert("Error: Not a number");
   }
 }
 
-console.log(elementType2);
-console.log("Мінімальне значення: " + min);
-console.log("Максимальне значення: " + max);
-
-
-
-
-
-
-// lattices as a numbers //
-for( let i = 0; i <= 5; i++) {
-    let lattices = "";
-    for(let j = 1; j <= i; j++) {
-        lattices += "#";
+function subtracting(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    if (a < b) {
+      if (confirm("Are you sure you want to proceed with the operation?")) {
+        return a - b;
+      } else {
+        return a - b;
+      }
+    } else {
+      return a - b;
     }
-    console.log(lattices);
+  } else {
+    alert("Error: Not a number");
+    return a - b;
+  } 
+}
+
+function multiplying(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    return a * b;
+  } else {
+    alert("Error: Not a number");
+  } 
+}
+
+function dividing(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    if (b == 0) {
+      alert("Error: Division by 0 is impossible");
+    } 
+   else {
+      return a / b;
+    }
+  } else {
+    alert("Error: Not a number");
+  }
+}
+
+error(firstNumber, secondNumber);
+
+firstNumber = Number(firstNumber);
+secondNumber = Number(secondNumber);
+
+console.log(adding(firstNumber, secondNumber));
+console.log(subtracting(firstNumber, secondNumber));
+console.log(multiplying(firstNumber, secondNumber));
+console.log(dividing(firstNumber, secondNumber));
+
+const numbers = [firstNumber, secondNumber];
+
+function getMaxClosure() {
+  let max = -Infinity;
+
+  return function (number) {
+    if (typeof number === 'number' && number > max) {
+      max = number;
+    }
+    return max;
+  }
+}
+
+function MaxNumber(numbers) {
+  const getMax = getMaxClosure();
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+    if (typeof number === 'number') {
+      getMax(number);
+    }
+  }
+  return getMax(-Infinity);
+}
+
+function MinNumber(numbers) {
+  let min = Infinity;
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+    if (typeof number === 'number' && number < min) {
+min = number;
+}
+}
+return min;
+}
+
+console.log("Max number is: ", MaxNumber(numbers));
+console.log("Min number is: ", MinNumber(numbers));
+
+function MaxNumber(numbers) {
+  let max = -Infinity;
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+    if (typeof number === 'number' && number > max) {
+      max = number;
+    }
+  }
+  return max;
 }
