@@ -1,93 +1,39 @@
-// Checking objects for emptiness //
-function isObjectEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
+// Accumulator //
+function Accumulator(initialValue) {
+  this.value = initialValue;
 
-// The result of the call //
-function UsreInfo(name, age) {
-  return {
-    name: name,
-    age: age,
-    sayHello() {
-      console.log(`Hello, I am ${this.name}, I am ${this.age} years old`);
-    },
+  this.increment = function() {
+    this.value++;
+  };
+
+  this.decrement = function() {
+    this.value--;
   };
 }
 
-function getNameAndAge(user) {
-  return user.name + " " + user.age;
+// CancelableAccumulator //
+function CancelableAccumulator(initialValue) {
+  Accumulator.call(this, initialValue);
+
+  this.clear = function() {
+    this.value = initialValue;
+  };
 }
-
-function sayUserHello(user) {
-  user.sayHello();
-}
-
-const user = UsreInfo("John", 24);
-sayUserHello(user);
+CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
 
 
+let accumulator = new Accumulator(6);
+console.log(accumulator.value);
+accumulator.increment();
+console.log(accumulator.value);
+accumulator.decrement();
+console.log(accumulator.value);
 
-// Calculator //
-const calculator = {
-  num1: 0,
-  num2: 0,
-  ask() {
-    this.num1 = Number(prompt("Введіть перше число"));
-    this.num2 = Number(prompt("Введіть друге число"));
-  },
-  sum() {
-    console.log(this.num1 + this.num2);
-  },
-  mul() {
-    console.log(this.num1 * this.num2);
-  },
-};
-
-calculator.ask(); // запитає користувача про введення 2 чисел
-calculator.sum(); // виведе суму збережених чисел
-calculator.mul(); // виведе добуток чисел
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const calculator = {
-//   num1: 0,
-//   num2: 0,
-//   ask() {
-//     this.num1 = Number(prompt("Введіть перше число"));
-//     this.num2 = Number(prompt("Введіть друге число"));
-//   },
-//   sum() {
-//     console.log(this.num1 + this.num2);
-//   },
-//   mul() {
-//     console.log(this.num1 * this.num2);
-//   },
-// };
-
-// calculator.ask(); // запитає користувача про введення 2 чисел
-// calculator.sum(); // виведе суму збережених чисел
-// calculator.mul(); // виведе добуток чисел
+let cancelableAccumulator = new CancelableAccumulator(1);
+console.log(cancelableAccumulator.value); 
+cancelableAccumulator.increment();
+console.log(cancelableAccumulator.value); 
+cancelableAccumulator.decrement();
+console.log(cancelableAccumulator.value); 
+cancelableAccumulator.clear();
+console.log(cancelableAccumulator.value); 
