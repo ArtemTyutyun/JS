@@ -1,39 +1,54 @@
-// Accumulator //
-function Accumulator(initialValue) {
-  this.value = initialValue;
+const result = document.getElementById("result");
 
-  this.increment = function() {
-    this.value++;
-  };
-
-  this.decrement = function() {
-    this.value--;
-  };
+function add() {
+	const num1 = parseFloat(document.getElementById("number1").value);
+	const num2 = parseFloat(document.getElementById("number2").value);
+	const sum = num1 + num2;
+	result.textContent = sum;
+	if (sum >= 0) {
+		result.style.color = `rgb(0, ${Math.min(sum * 10, 255)}, 0)`;
+	} else {
+		result.style.color = `rgb(${Math.min(-sum * 10, 255)}, 0, 0)`;
+	}
 }
 
-// CancelableAccumulator //
-function CancelableAccumulator(initialValue) {
-  Accumulator.call(this, initialValue);
-
-  this.clear = function() {
-    this.value = initialValue;
-  };
+function subtract() {
+	const num1 = parseFloat(document.getElementById("number1").value);
+	const num2 = parseFloat(document.getElementById("number2").value);
+	const difference = num1 - num2;
+	result.textContent = difference;
+	if (difference >= 0) {
+		result.style.color = `rgb(0, ${Math.min(difference * 10, 255)}, 0)`;
+	} else {
+		result.style.color = `rgb(${Math.min(-difference * 10, 255)}, 0, 0)`;
+	}
 }
-CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
 
+function multiply() {
+	const num1 = parseFloat(document.getElementById("number1").value);
+	const num2 = parseFloat(document.getElementById("number2").value);
+	const product = num1 * num2;
+	result.textContent = product;
+	if (product >= 0) {
+		result.style.color = `rgb(0, ${Math.min(product * 10, 255)}, 0)`;
+	} else {
+		result.style.color = `rgb(${Math.min(-product * 10, 255)}, 0, 0)`;
+	}
+}
 
-let accumulator = new Accumulator(6);
-console.log(accumulator.value);
-accumulator.increment();
-console.log(accumulator.value);
-accumulator.decrement();
-console.log(accumulator.value);
+function divide() {
+	const num1 = parseFloat(document.getElementById("number1").value);
+	const num2 = parseFloat(document.getElementById("number2").value);
+	const quotient = num1 / num2;
+	result.textContent = quotient;
+	if (quotient >= 0) {
+		result.style.color = `rgb(0, ${Math.min(quotient * 10, 255)}, 0)`;
+	} else {
+		result.style.color = `rgb(${Math.min(-quotient * 10, 255)}, 0, 0)`;
+	}
+}
 
-let cancelableAccumulator = new CancelableAccumulator(1);
-console.log(cancelableAccumulator.value); 
-cancelableAccumulator.increment();
-console.log(cancelableAccumulator.value); 
-cancelableAccumulator.decrement();
-console.log(cancelableAccumulator.value); 
-cancelableAccumulator.clear();
-console.log(cancelableAccumulator.value); 
+document.getElementById("addBtn").addEventListener("click", add);
+document.getElementById("subtractBtn").addEventListener("click", subtract);
+document.getElementById("multiplyBtn").addEventListener("click", multiply);
+document.getElementById("divideBtn").addEventListener("click", divide);
