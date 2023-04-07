@@ -1,4 +1,3 @@
-
 let firstNumber;
 let secondNumber;
 
@@ -9,6 +8,3 @@ alert("Adding = " + " " + (Number(firstNumber) + Number(secondNumber)));
 alert("Subtraction = " + " " + (firstNumber - secondNumber));
 alert("Multiplication = " + " " + (firstNumber * secondNumber));
 alert("Division = " + " " + (firstNumber / secondNumber));
-
-
-
