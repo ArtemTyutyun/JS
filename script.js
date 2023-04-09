@@ -1,27 +1,72 @@
-let firstNumber;
-let secondNumber;
+// adding numbers //
+const numbers = [
+    27049,
+    true,
+    46066,
+    22591,
+    false,
+    20232, 
+    15372,  
+    null, 
+    66230,
+    24795, 
+    'test',
+    14433,
+    undefined,
+    45986,
+    15355
+]
 
-firstNumber = prompt("Enter first number");
-secondNumber = prompt("Enter second number");
+let sum = 0;
+const elementType = [];
 
-if (firstNumber === "" || secondNumber === "") {
-  alert("Error: You need to enter two numbers");
-} else {
-  alert(`Adding = ${Number(firstNumber) + Number(secondNumber)}`);
+for (let i = 0; i < numbers.length; i++) {
+  const element = numbers[i];
 
-  if (firstNumber < secondNumber) {
-    if (confirm("Are you sure you want to proceed with the operation?")) {
-      alert(`Subtraction =  ${firstNumber - secondNumber}`);
+   if(typeof element === 'number'){
+    elementType.push(element);
+    sum = sum + element;
+    
+  }
+}
+
+console.log(elementType);
+console.log(sum);
+
+
+
+// min/max nambers //
+let min = Infinity;
+let max = -Infinity;
+
+for (let i = 1; i < numbers.length; i++) {
+  const element = numbers[i];
+
+  if(typeof element === 'number') {
+
+  if (element < min) {
+    min = element;
+  }
+
+  if (element > max) {
+    max = element;
+  }
+
+}
+}
+
+console.log(`Мінімальне значення:  ${min}`);
+console.log(`Максимальне значення:  ${max}`);
+
+
+
+// lattices as a numbers //
+for( let i = 0; i <= 5; i++) {
+    let lattices = "";
+
+    for(let j = 1; j <= i; j++) {
+        lattices = lattices + "#";
     }
-  } else {
-    alert(`Subtraction =  ${firstNumber - secondNumber}`);
-  }
 
-  alert(`Multiplication =  ${firstNumber * secondNumber}`);
-
-  if (secondNumber == 0) {
-    alert("Division by 0 is impossible");
-  } else {
-    alert(`Division = ${firstNumber / secondNumber}`);
-  }
+    console.log(lattices);
 }
