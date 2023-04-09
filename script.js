@@ -1,17 +1,19 @@
 // adding numbers //
 const numbers = [
-    28215,
-    27049, 
+    27049,
+    true,
+    46066,
     22591,
-    'namber', 
-    20017, 
-    15372, 
-    undefined, 
-    22486,
-    'test', 
+    false,
+    20232, 
+    15372,  
+    null, 
+    66230,
     24795, 
-    23914,
-    16191, 
+    'test',
+    14433,
+    undefined,
+    45986,
     15355
 ]
 
@@ -20,10 +22,11 @@ const elementType = [];
 
 for (let i = 0; i < numbers.length; i++) {
   const element = numbers[i];
-  
-  if (typeof element === 'number' && !isNaN(element)){
+
+   if(typeof element === 'number'){
     elementType.push(element);
-    sum += element;
+    sum = sum + element;
+    
   }
 }
 
@@ -32,42 +35,38 @@ console.log(sum);
 
 
 
-
-
 // min/max nambers //
-let min = numbers[0];
-let max = numbers[0];
-const elementType2 = [];
+let min = Infinity;
+let max = -Infinity;
 
 for (let i = 1; i < numbers.length; i++) {
   const element = numbers[i];
 
+  if(typeof element === 'number') {
+
   if (element < min) {
     min = element;
   }
+
   if (element > max) {
     max = element;
   }
 
-  if (typeof numbers[i] === 'number' && !isNaN(numbers[i])) {
-    elementType2.push(numbers[i]);
-  }
+}
 }
 
-console.log(elementType2);
-console.log("Мінімальне значення: " + min);
-console.log("Максимальне значення: " + max);
-
-
-
+console.log(`Мінімальне значення:  ${min}`);
+console.log(`Максимальне значення:  ${max}`);
 
 
 
 // lattices as a numbers //
 for( let i = 0; i <= 5; i++) {
     let lattices = "";
+
     for(let j = 1; j <= i; j++) {
-        lattices += "#";
+        lattices = lattices + "#";
     }
+
     console.log(lattices);
 }
