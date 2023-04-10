@@ -2,112 +2,109 @@ let firstNumber = prompt("Enter first number");
 let secondNumber = prompt("Enter second number");
 
 function error(a, b) {
-  if (firstNumber === '' || secondNumber === '') {
-    alert("Error: Please enter a number");
+  if (a === '' || b === '') {
+    throw("Error: Please enter a number");
   }
 }
 
 function adding(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    return a + b;
+  if (!isNaN(a) && !isNaN(b)) {
+    const result = a + b;
+    return "Adding = " + result;
   } else {
-    alert("Error: Not a number");
+    return "Error: Not a number";
   }
 }
 
 function subtracting(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    if (a < b) {
-      if (confirm("Are you sure you want to proceed with the operation?")) {
-        return a - b;
-      } else {
-        return a - b;
-      }
+  if (isNaN(a) || isNaN(b)) {
+    return "Error: Not a number";
+  }
+  if (a < b) {
+    if (confirm("Are you sure you want to proceed with the operation?")) {
+      const result = a - b;
+      return "Subtracting = " + result;
     } else {
-      return a - b;
+      return "The subtraction was canceled"; 
     }
   } else {
-    alert("Error: Not a number");
-    return a - b;
-  } 
+    const result = a - b;
+    return "Subtracting = " + result;
+  }
 }
 
 function multiplying(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    return a * b;
+  if (!isNaN(a) && !isNaN(b)) {
+    const result = a * b;
+    return "Multiplying = " + result;
   } else {
-    alert("Error: Not a number");
+    return "Error: Not a number";
   } 
 }
 
 function dividing(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
+  if (!isNaN(a) && !isNaN(b)) {
+    const result = a / b;
     if (b == 0) {
-      alert("Error: Division by 0 is impossible");
-    } 
-   else {
-      return a / b;
+      return "Error: Division by 0 is impossible";
+    } else {
+      return "Dividing = " + result;
     }
   } else {
-    alert("Error: Not a number");
+    return "Error: Not a number";
   }
 }
 
 error(firstNumber, secondNumber);
-
 firstNumber = Number(firstNumber);
 secondNumber = Number(secondNumber);
-
 console.log(adding(firstNumber, secondNumber));
 console.log(subtracting(firstNumber, secondNumber));
 console.log(multiplying(firstNumber, secondNumber));
 console.log(dividing(firstNumber, secondNumber));
+console.log(" ");
 
-const numbers = [firstNumber, secondNumber];
 
-function getMaxClosure() {
-  let max = -Infinity;
 
-  return function (number) {
-    if (typeof number === 'number' && number > max) {
-      max = number;
-    }
-    return max;
+// min/max nambers //
+
+const numbers = [
+  27049,
+  true,
+  46066,
+  22591,
+  false,
+  20232, 
+  15372,  
+  null, 
+  66230,
+  24795, 
+  'test',
+  14433,
+  undefined,
+  45986,
+  15355
+]
+function findMinMax(numbers) {
+let min = Infinity;
+let max = -Infinity;
+
+for (let i = 1; i < numbers.length; i++) {
+  const element = numbers[i];
+ if(typeof element === 'number') {
+  if (element < min) {
+    min = element;
+  }
+
+  if (element > max) {
+    max = element;
   }
 }
-
-function MaxNumber(numbers) {
-  const getMax = getMaxClosure();
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number') {
-      getMax(number);
-    }
-  }
-  return getMax(-Infinity);
+}
+return [min, max];
 }
 
-function MinNumber(numbers) {
-  let min = Infinity;
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number' && number < min) {
-min = number;
-}
-}
-return min;
-}
-
-console.log("Max number is: ", MaxNumber(numbers));
-console.log("Min number is: ", MinNumber(numbers));
-
-function MaxNumber(numbers) {
-  let max = -Infinity;
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    if (typeof number === 'number' && number > max) {
-      max = number;
-    }
-  }
-  return max;
-}
+const [min, max] = findMinMax(numbers);
+console.log("Finding the minimum and maximum values:");
+console.log(`Minimum value: ${min}`); 
+console.log(`Maximum value: ${max}`); 
