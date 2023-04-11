@@ -1,110 +1,49 @@
-let firstNumber = prompt("Enter first number");
-let secondNumber = prompt("Enter second number");
-
-function error(a, b) {
-  if (a === '' || b === '') {
-    throw("Error: Please enter a number");
-  }
-}
-
-function adding(a, b) {
-  if (!isNaN(a) && !isNaN(b)) {
-    const result = a + b;
-    return "Adding = " + result;
-  } else {
-    return "Error: Not a number";
-  }
-}
-
-function subtracting(a, b) {
-  if (isNaN(a) || isNaN(b)) {
-    return "Error: Not a number";
-  }
-  if (a < b) {
-    if (confirm("Are you sure you want to proceed with the operation?")) {
-      const result = a - b;
-      return "Subtracting = " + result;
-    } else {
-      return "The subtraction was canceled"; 
+//checking the object for emptiness//
+function emptyObject(obj) {
+  for (let key in obj) {
+    if(obj.objective(key)) {
+    return false;
     }
-  } else {
-    const result = a - b;
-    return "Subtracting = " + result;
+}
+return true;
+}
+
+//sayHello//
+const user = {
+  name: 'Artem',
+  age: 14,
+  sayHello: function() {
+    console.log(`Привіт, я ${this.name}, мені ${this.age} років`);
   }
-}
+};
 
-function multiplying(a, b) {
-  if (!isNaN(a) && !isNaN(b)) {
-    const result = a * b;
-    return "Multiplying = " + result;
-  } else {
-    return "Error: Not a number";
-  } 
-}
+user.sayHello();
 
-function dividing(a, b) {
-  if (!isNaN(a) && !isNaN(b)) {
-    const result = a / b;
-    if (b == 0) {
-      return "Error: Division by 0 is impossible";
-    } else {
-      return "Dividing = " + result;
+//calculator object//
+let calculator = {
+  ask: function() {
+    this.num1 = +prompt("Введіть перше число:");
+    this.num2 = +prompt("Введіть друге число:");
+    if (isNaN(this.num1) || isNaN(this.num2)) {
+      console.log("You have entered incorrect values!");
     }
-  } else {
-    return "Error: Not a number";
+  },
+
+  sum: function() {
+    if (!isNaN(this.num1) && !isNaN(this.num2)) {
+      return this.num1 + this.num2;
+    }
+    return "Error when entering numbers. Enter numbers only!";
+  },
+
+  mul: function() {
+    if (!isNaN(this.num1) && !isNaN(this.num2)) {
+      return this.num1 * this.num2;
+    }
+    return "Error when entering numbers. Enter numbers only!";
   }
-}
+};
 
-error(firstNumber, secondNumber);
-firstNumber = Number(firstNumber);
-secondNumber = Number(secondNumber);
-console.log(adding(firstNumber, secondNumber));
-console.log(subtracting(firstNumber, secondNumber));
-console.log(multiplying(firstNumber, secondNumber));
-console.log(dividing(firstNumber, secondNumber));
-console.log(" ");
-
-
-
-// min/max nambers //
-
-const numbers = [
-  27049,
-  true,
-  46066,
-  22591,
-  false,
-  20232, 
-  15372,  
-  null, 
-  66230,
-  24795, 
-  'test',
-  14433,
-  undefined,
-  45986,
-  15355
-]
-function findMinMax(numbers) {
-let min = Infinity;
-let max = -Infinity;
-
-for (let i = 1; i < numbers.length; i++) {
-  const element = numbers[i];
- if(typeof element === 'number') {
-  if (element < min) {
-    min = element;
-  }
-
-  if (element > max) {
-    max = element;
-  }
-}
-}
-return [min, max];
-}
-
-const [min, max] = findMinMax(numbers);
-console.log("Finding the minimum and maximum values:");
-console.log(`Minimum value: ${min}`); 
-console.log(`Maximum value: ${max}`); 
+calculator.ask();
+console.log(calculator.sum());
+console.log(calculator.mul());
