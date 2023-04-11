@@ -1,93 +1,49 @@
-// Checking objects for emptiness //
-function isObjectEmpty(obj) {
-  return Object.keys(obj).length === 0;
+//checking the object for emptiness//
+function emptyObject(obj) {
+  for (let key in obj) {
+    if(obj.objective(key)) {
+    return false;
+    }
+}
+return true;
 }
 
-// The result of the call //
-function UsreInfo(name, age) {
-  return {
-    name: name,
-    age: age,
-    sayHello() {
-      console.log(`Hello, I am ${this.name}, I am ${this.age} years old`);
-    },
-  };
-}
-
-function getNameAndAge(user) {
-  return user.name + " " + user.age;
-}
-
-function sayUserHello(user) {
-  user.sayHello();
-}
-
-const user = UsreInfo("John", 24);
-sayUserHello(user);
-
-
-
-// Calculator //
-const calculator = {
-  num1: 0,
-  num2: 0,
-  ask() {
-    this.num1 = Number(prompt("Введіть перше число"));
-    this.num2 = Number(prompt("Введіть друге число"));
-  },
-  sum() {
-    console.log(this.num1 + this.num2);
-  },
-  mul() {
-    console.log(this.num1 * this.num2);
-  },
+//sayHello//
+const user = {
+  name: 'Artem',
+  age: 14,
+  sayHello: function() {
+    console.log(`Привіт, я ${this.name}, мені ${this.age} років`);
+  }
 };
 
-calculator.ask(); // запитає користувача про введення 2 чисел
-calculator.sum(); // виведе суму збережених чисел
-calculator.mul(); // виведе добуток чисел
+user.sayHello();
 
+//calculator object//
+let calculator = {
+  ask: function() {
+    this.num1 = +prompt("Введіть перше число:");
+    this.num2 = +prompt("Введіть друге число:");
+    if (isNaN(this.num1) || isNaN(this.num2)) {
+      console.log("You have entered incorrect values!");
+    }
+  },
 
+  sum: function() {
+    if (!isNaN(this.num1) && !isNaN(this.num2)) {
+      return this.num1 + this.num2;
+    }
+    return "Error when entering numbers. Enter numbers only!";
+  },
 
+  mul: function() {
+    if (!isNaN(this.num1) && !isNaN(this.num2)) {
+      return this.num1 * this.num2;
+    }
+    return "Error when entering numbers. Enter numbers only!";
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const calculator = {
-//   num1: 0,
-//   num2: 0,
-//   ask() {
-//     this.num1 = Number(prompt("Введіть перше число"));
-//     this.num2 = Number(prompt("Введіть друге число"));
-//   },
-//   sum() {
-//     console.log(this.num1 + this.num2);
-//   },
-//   mul() {
-//     console.log(this.num1 * this.num2);
-//   },
-// };
-
-// calculator.ask(); // запитає користувача про введення 2 чисел
-// calculator.sum(); // виведе суму збережених чисел
-// calculator.mul(); // виведе добуток чисел
+calculator.ask();
+console.log(calculator.sum());
+console.log(calculator.mul());
