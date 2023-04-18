@@ -1,50 +1,42 @@
-//checking the object for emptiness//
-function emptyObject(obj) {
-  for (let key in obj) {
-    if(obj.hasOwnProperty(key)) {
-    return false;
-    }
+//Accumulator//
+function Accumulator(initialValue) {
+  this.value = initialValue;
+
+  this.increment = function () {
+    this.value++;
+  };
+
+  this.decrement = function () {
+    this.value--;
+  };
 }
-return true;
+
+// CancelableAccumulator //
+function CancelableAccumulator(initialValue) {
+  Accumulator.call(this, initialValue);
+
+  this.clear = function () {
+    this.value = initialValue;
+  };
 }
+CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
 
-//sayHello//
-const user = {
-  name: 'Artem',
-  age: 14,
-  sayHello: function() {
-    console.log(`Привіт, я ${this.name}, мені ${this.age} років`);
-  }
-};
+let input = prompt("Enter a number for Accumulator: ");
+let accumulator = new Accumulator(parseInt(input));
+console.log(accumulator.value);
+accumulator.increment();
+console.log(accumulator.value);
+accumulator.decrement();
+console.log(accumulator.value);
 
-user.sayHello();
+console.log(" ");
 
-//calculator object//
-const calculator = {
-  ask: function() {
-    this.num1 = +prompt("Введіть перше число:");
-    this.num2 = +prompt("Введіть друге число:");
-    if (isNaN(this.num1) || isNaN(this.num2)) {
-      console.log("");
-      console.log("You have entered incorrect values!");
-    }
-  },
-
-  sum: function() {
-    if (!isNaN(this.num1) && !isNaN(this.num2)) {
-      return (`Sum: ${this.num1 + this.num2}`);
-    }
-    return "Error when entering numbers. Enter numbers only!";
-  },
-
-  mul: function() {
-    if (!isNaN(this.num1) && !isNaN(this.num2)) {
-      return (`Multiplication: ${this.num1 * this.num2}`);
-    }
-    return "Error when entering numbers. Enter numbers only!";
-  }
-};
-
-calculator.ask();
-console.log(calculator.sum());
-console.log(calculator.mul());
+let input2 = prompt("Enter a number for CancelableAccumulator: ");
+let cancelableAccumulator = new CancelableAccumulator(parseInt(input2));
+console.log(cancelableAccumulator.value);
+cancelableAccumulator.increment();
+console.log(cancelableAccumulator.value);
+cancelableAccumulator.decrement();
+console.log(cancelableAccumulator.value);
+cancelableAccumulator.clear();
+console.log(cancelableAccumulator.value);
