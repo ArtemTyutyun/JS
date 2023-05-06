@@ -1,39 +1,22 @@
-function calculateAverage(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
-    
-    let avg = sum / arr.length;
-    return avg;
+
+var targetDate = new Date();
+targetDate.setHours(22, 00, 00); // <---- Введіть час коли хочете лягти спати //
+
+
+var timer = setInterval(function() {
+
+
+  var now = new Date().getTime();
+  var distance = targetDate - now;
+
+  var hours = Math.floor(distance / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.body.innerHTML = "<h1>Час до сну</h1><p>" + hours + " годин " + minutes + " хвилин " + seconds + " секунд </p>";
+
+  if (distance < 1000) {
+    clearInterval(timer);
+    document.body.innerHTML = "<h1>Добраніч!</h1>";
   }
-  
-  let numbers = [1, 2, 3, 4, 5];
-  
-  let avg = calculateAverage(numbers);
-  console.log("The average is: " + avg);
-
-
-  function User(name, age) {
-this.name = name;
-  this.age = age;
-}
-
-User.prototype.sayHello = function() {
-	return `Hi. My name is ${this.name} and I'm ${this.age} years old`;
-}
-
-const user = new User('Sherlock', 27);
-console.log(user.sayHello());
-
-
-const calculator = function(init = 0) {
-    let count = init;
-      return function () {
-        return ++count;
-    }
-  }
-  
-  const c = calculator();
-  console.log(c());
-  console.log(c());
+}, 1000);
