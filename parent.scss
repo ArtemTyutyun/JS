@@ -1,4 +1,4 @@
-@import 'theme';
+@import "theme";
 
 * {
     margin: 0;
@@ -86,12 +86,12 @@
 
         .photo {
             transition: transform 0.3s ease-in-out;
-          }
-          
-          .photo.active {
+        }
+
+        .photo.active {
             transform: scale(1.2);
             box-shadow: 1px 1px 30px 5px grey;
-          }
+        }
 
         .Contact {
             width: 124px;
@@ -286,7 +286,7 @@
             width: 621px;
             height: 84px;
             @include margin(28px, 139px, 49px, 27px);
-          }
+        }
 
         .skills-2 {
             width: 330px;
@@ -399,7 +399,7 @@
             height: 57px;
             color: #263036;
             @include font("inter", normal, 300, 16px);
-            @include margin(28px, 201px, 549px, 55px);
+            @include margin(28px, 201px, 53px, 55px);
         }
 
         .link-5 {
@@ -415,7 +415,17 @@
                 text-decoration: underline;
             }
         }
-        
     }
-    
+}
+
+.My-prj {
+    @include font("inter", normal, 600, 36px);
+    @include margin(28px, 201px, 28px, 55px);
+}
+
+.table-8 {
+    width: 659px;
+    height: 0px;
+    border: 5px solid #000000;
+    @include margin(28px, 101px, 28px, 55px);
 }

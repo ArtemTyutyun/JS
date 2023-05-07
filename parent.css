@@ -502,7 +502,7 @@
   font-size: 16px;
   margin-top: 28px;
   margin-right: 201px;
-  margin-bottom: 549px;
+  margin-bottom: 53px;
   margin-left: 55px;
 }
 .parent .right .link-5 {
@@ -515,4 +515,25 @@
 .parent .right .link-5:visited {
   color: #005;
   text-decoration: underline;
+}
+
+.My-prj {
+  font-family: "inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  margin-top: 28px;
+  margin-right: 201px;
+  margin-bottom: 28px;
+  margin-left: 55px;
+}
+
+.table-8 {
+  width: 659px;
+  height: 0px;
+  border: 5px solid #000000;
+  margin-top: 28px;
+  margin-right: 101px;
+  margin-bottom: 28px;
+  margin-left: 55px;
 }/*# sourceMappingURL=parent.css.map */
