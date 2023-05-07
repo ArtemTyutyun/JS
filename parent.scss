@@ -1,0 +1,431 @@
+@import "theme";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin animation {
+    @keyframes blocks {
+        0% {
+            margin-top: 50vh;
+            opacity: 0;
+        }
+        100% {
+            margin-top: 0;
+            opacity: 1;
+        }
+    }
+}
+
+@mixin font($font-family, $font-style, $font-weight, $font-size) {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+
+@mixin margin($margin-top, $margin-right, $margin-bottom, $margin-left) {
+    margin-top: $margin-top;
+    margin-right: $margin-right;
+    margin-bottom: $margin-bottom;
+    margin-left: $margin-left;
+}
+
+.parent {
+    border: 1px solid #000;
+    display: flex;
+
+    .nav-letter {
+        margin-right: 20px;
+        border: 2px solid black;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    .left {
+        border: 1px solid #000;
+        width: 385px;
+        height: 1667px;
+        background: #86a3b4;
+        box-shadow: 2px 1px 15px grey;
+        z-index: 2;
+        animation: blocks 0.5s linear;
+        @include animation();
+
+        .name {
+            @include margin(58px, 85px, 0px, 40px);
+
+            &-1 {
+                width: 118px;
+                height: 48px;
+                line-height: 48px;
+                color: #ffffff;
+                @include font("inter", normal, 600, 40px);
+            }
+
+            &-2 {
+                width: 260px;
+                height: 48px;
+                line-height: 48px;
+                color: #1c2e8c;
+                @include font("inter", normal, 600, 40px);
+            }
+        }
+
+        .div-photo {
+            width: 385px;
+            height: 292px;
+        }
+
+        .photo {
+            width: 385px;
+            height: 292px;
+            @include margin(36px, 0px, 50px, 0px);
+        }
+
+        .photo {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo.active {
+            transform: scale(1.2);
+            box-shadow: 1px 1px 30px 5px grey;
+        }
+
+        .Contact {
+            width: 124px;
+            height: 39px;
+            @include font("inter", normal, 600, 32px);
+            line-height: 39px;
+            color: #263036;
+            @include margin(50px, 220px, 15px, 41px);
+        }
+
+        @mixin tables-1 {
+            width: 289px;
+            height: 0px;
+            border: 6px solid #1e1e1e;
+            margin-top: 15px;
+        }
+
+        .table-1 {
+            margin: {
+                right: 54px;
+                bottom: 31px;
+                left: 42px;
+            }
+            @include tables-1();
+        }
+
+        .table-2 {
+            margin: {
+                right: 52px;
+                bottom: 23px;
+                left: 44px;
+            }
+            @include tables-1();
+        }
+
+        .ul {
+            list-style: none;
+        }
+
+        .address-2 {
+            width: 97px;
+            height: 29px;
+            @include font("inter", normal, 600, 24px);
+            line-height: 29px;
+            color: #263036;
+            @include margin(31px, 247px, 11px, 41px);
+        }
+
+        .address-3 {
+            width: 141px;
+            height: 19px;
+            @include font("inter", normal, 600, 16px);
+            line-height: 19px;
+            color: #263036;
+            @include margin(11px, 204px, 36px, 40px);
+        }
+
+        .phone-2 {
+            width: 74px;
+            height: 29px;
+            @include font("inter", normal, 600, 24px);
+            line-height: 29px;
+            color: #263036;
+            @include margin(36px, 270px, 11px, 41px);
+        }
+
+        .phone-3 {
+            width: 132px;
+            height: 19px;
+            @include font("inter", normal, 600, 16px);
+            line-height: 19px;
+            color: #263036;
+            @include margin(11px, 213px, 36px, 40px);
+        }
+
+        .e-mail-2 {
+            width: 74px;
+            height: 29px;
+            @include font("inter", normal, 600, 24px);
+            line-height: 29px;
+            color: #263036;
+            @include margin(36px, 269px, 11px, 42px);
+        }
+
+        @mixin links {
+            line-height: 19px;
+            text-decoration: none;
+            height: 19px;
+            color: #1c2e8c;
+        }
+
+        .link {
+            width: 198px;
+            @include links;
+            @include font("inter", normal, 600, 16px);
+            @include margin(11px, 146px, 36px, 41px);
+        }
+
+        .Linkedin {
+            width: 98px;
+            height: 29px;
+            @include font("inter", normal, 600, 24px);
+            line-height: 29px;
+            color: #263036;
+            @include margin(36px, 245px, 11px, 42px);
+        }
+
+        .link-2 {
+            width: 333px;
+            @include links;
+            @include font("inter", normal, 600, 16px);
+            @include margin(11px, 11px, 36px, 41px);
+        }
+
+        .Languages-2 {
+            width: 171px;
+            height: 39px;
+            @include font("inter", normal, 600, 32px);
+            line-height: 39px;
+            color: #263036;
+            @include margin(36px, 171px, 15px, 43px);
+        }
+
+        @mixin Languages-1-2 {
+            height: 24px;
+            line-height: 24px;
+            color: #1e1e1e;
+        }
+
+        .Language-1 {
+            width: 139px;
+            @include Languages-1-2;
+            @include font("inter", normal, 600, 20px);
+            @include margin(23px, 204px, 15px, 42px);
+        }
+
+        .Language-2 {
+            width: 116px;
+            @include Languages-1-2;
+            @include font("inter", normal, 600, 20px);
+            @include margin(15px, 227px, 530px, 42px);
+        }
+    }
+
+    .right {
+        width: 1200px;
+        height: 1667px;
+        background: #ffffff;
+        z-index: 1;
+        animation: blocks 1s linear;
+        @include animation();
+
+        .Summary-1 {
+            width: 167px;
+            height: 44px;
+            @include font("inter", normal, 600, 36px);
+            line-height: 44px;
+            color: #1e1e1e;
+            @include margin(58px, 593px, 28px, 55px);
+        }
+
+        .table-3,
+        .table-4,
+        .table-5 {
+            width: 659px;
+            height: 0px;
+            border: 5px solid #000000;
+            @include margin(28px, 101px, 28px, 55px);
+        }
+
+        .Summary-2 {
+            width: 706px;
+            height: 76px;
+            @include font("inter", normal, 600, 16px);
+            line-height: 19px;
+            color: #263036;
+            @include margin(28px, 54px, 49px, 55px);
+        }
+
+        .skills-parent {
+            display: flex;
+        }
+
+        @mixin left-right {
+            width: 297px;
+            height: 84px;
+            line-height: 19px;
+            color: #263036;
+        }
+
+        .skills-3 {
+            width: 621px;
+            height: 84px;
+            @include margin(28px, 139px, 49px, 27px);
+        }
+
+        .skills-2 {
+            width: 330px;
+            height: 44px;
+            @include font("inter", normal, 600, 36px);
+            line-height: 44px;
+            color: #1e1e1e;
+            @include margin(49px, 482px, 28px, 55px);
+        }
+
+        .left-2 {
+            @include left-right;
+            @include font("inter", normal, 600, 16px);
+            @include margin(28px, 27px, 49px, 55px);
+        }
+
+        .right-2 {
+            @include left-right;
+            @include font("inter", normal, 600, 16px);
+            @include margin(28px, 139px, 49px, 27px);
+        }
+
+        .Work-Experience {
+            width: 706px;
+            height: 392px;
+        }
+
+        .Head {
+            width: 350px;
+            height: 44px;
+            @include font("inter", normal, 600, 36px);
+            line-height: 44px;
+            color: #1e1e1e;
+            @include margin(49px, 465px, 31px, 55px);
+        }
+
+        .table-6 {
+            width: 659px;
+            height: 0px;
+            border: 5px solid #000000;
+            @include margin(28px, 101px, 31px, 55px);
+        }
+
+        @mixin WE {
+            width: 706px;
+            line-height: 17px;
+            color: #000000;
+            @include font("inter", normal, 300, 14px);
+        }
+
+        .WE1 {
+            height: 133px;
+            @include WE;
+            @include margin(28px, 101px, 31px, 55px);
+        }
+
+        .WE2 {
+            height: 141px;
+            opacity: 70%;
+
+            @include WE;
+            @include margin(15px, 54px, 53px, 55px);
+
+            &:hover {
+                animation: We2 3s;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        @keyframes We2 {
+            70% {
+                opacity: 70%;
+            }
+            80% {
+                opacity: 80%;
+            }
+            90% {
+                opacity: 90%;
+            }
+            100% {
+                opacity: 100%;
+            }
+        }
+
+        .Name,
+        .Name-2,
+        .Name-3,
+        .Dates-1,
+        .Dates-2,
+        .Job-1,
+        .Job-2,
+        .Project-1,
+        .Project-2 {
+            font: {
+                size: 16px;
+                style: 600;
+            }
+        }
+
+        .Education {
+            width: 175px;
+            height: 44px;
+            color: #1e1e1e;
+            @include font("inter", normal, 600, 36px);
+            @include margin(53px, 585px, 28px, 55px);
+        }
+
+        .Education-2 {
+            width: 559px;
+            height: 57px;
+            color: #263036;
+            @include font("inter", normal, 300, 16px);
+            @include margin(28px, 201px, 53px, 55px);
+        }
+
+        .link-5 {
+            color: #00f;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &:visited {
+                color: #005;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.My-prj {
+    @include font("inter", normal, 600, 36px);
+    @include margin(28px, 201px, 28px, 55px);
+}
+
+.table-8 {
+    width: 659px;
+    height: 0px;
+    border: 5px solid #000000;
+    @include margin(28px, 101px, 28px, 55px);
+}
