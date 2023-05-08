@@ -30,30 +30,44 @@ document.addEventListener('keydown', function(event) {
 
 
 // gitHub links //
-window.addEventListener('load', function() {
-  fetch('https://api.github.com/users/ArtemTyutyun/repos')
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log('Request failed. Returned status of ' + response.status);
+class GitHubAPI {
+  constructor(token, userName) {
+    this.token = token;
+    this.userName = userName;
+  }
+
+  async getRepos() {
+    const response = await fetch(`https://api.github.com/users/${this.userName}/repos`, {
+      headers: {
+        Authorization: `Token ${this.token}`
       }
-    })
-    .then(repos => {
-      showProjects(repos);
-    })
-    .catch(error => {
-      console.log('Request failed. ' + error);
     });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  }
+}
+
+const github = new GitHubAPI('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', 'ArtemTyutyun');
+
+window.addEventListener('load', async function() {
+  try {
+    const repos = await github.getRepos();
+    showProjects(repos);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 function showProjects(repos) {
-  var projectList = document.getElementById('project-list');
-  for (var i = 0; i < repos.length; i++) {
-    var repo = repos[i];
-    var li = document.createElement('li');
+  const projectList = document.getElementById('project-list');
+  for (let i = 0; i < repos.length; i++) {
+    const repo = repos[i];
+    const li = document.createElement('li');
     li.setAttribute('style', 'margin-left: 80px;')
-    var a = document.createElement('a');
+    const a = document.createElement('a');
     a.setAttribute('href', repo.html_url);
     a.setAttribute('style', 'color: blue; text-decoration: none;');
     a.addEventListener('mouseover', function() {
@@ -68,7 +82,7 @@ function showProjects(repos) {
     a.appendChild(document.createTextNode(repo.full_name));
     li.appendChild(a);
     if (repo.description) {
-      var p = document.createElement('p');
+      const p = document.createElement('p');
       p.appendChild(document.createTextNode(repo.description));
       li.appendChild(p);
     }
