@@ -1,118 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume</title>
-  <link rel="stylesheet" href="./parent.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users and Posts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body class="main-theme">
-  
-<div class="parent">
+<body>
+    
+    <h1>Users and Posts</h1>
+	<ul id="user-list"></ul>
+	<ul id="post-list"></ul>
+	<ul id="comment-list"></ul>
+    <script src="./script.js"></script>
 
-<div class="left">
-  <div class="name">
-  <div class="Artem"><h1 class="name-1">Artem</h1></div>
-  <div class="Tiutiun"><h1 class="name-2">Tiutiun</h1></div>
-</div>
-  <div><img src="photo.jpg" alt="The photo of Tuytuyn Artem" class="photo"/></div>
-
-  <div><h2 class="Contact"><span class="nav-letter" data-nav="C">C</span>Contact</h2></div>
-  <div><table class="table-1"></table></div>
-  
-    <ul class="ul">
-    <div class="address"><li class="address-2">Address</li>
-    <li class="address-3">Boryspil, Ukraine</li></div>
-    <div class="phone"><li class="phone-2"> Phone</li>
-    <li class="phone-3">+380731002490</li></div>
-    <div class="e-mail"><li class="e-mail-2">E-mail</li>
-    <li class="e-mail-3"><a href="tutunartem13@gmail.com" target="_blank" class="link">tutunartem13@gmail.com</a></li></div>
-    <div><li class="Linkedin">Linkedin</li>
-      <li class="Linkedin-2"><a href="https://www.linkedin.com/in/tiutiun-artem/" target="_blank" class="link-2">https://www.linkedin.com/in/tiutiun-artem/</a></li></div>
-  </ul>
-
-
-
-<div class="Languages">
-  <h2 class="Languages-2"><span class="nav-letter" data-nav="L">L</span>Languages</h2>
-  <div><table class="table-2"></table></div>
-  <p class="Language-1">Ukrainian - B2</p>
-  <p class="Language-2">English - B2</p>
-</div>
-</div>
-
-<div class="right">
-<div class="Summary">
-  <h2 class="Summary-1"><span class="nav-letter" data-nav="S">S</span>Summary</h2>
-  <div><table class="table-3"></table></div>
-  <div class="Summary-3"><p class="Summary-2">I am a 9th grade student who has good knowledge of English and Ukrainian languages. I want to be an IT developer. <br/>At this stage, I already know how to create a resume using programming, namely using (HTML and CSS).</p></div>
-</div>
-
-
-<div class="skills">
-  <dd><h2 class="skills-2"><span class="nav-letter" data-nav="H">H</span>Skills Highlights</h2></dd>
-  <div><table class="table-4"></table></div>
-        <ul class="skills-3">
-          <div class="skills-parent">
-            <div class="left-2"><li class="li-1">English</li>
-            <li class="li-2">Ukrainian</li>
-            <li class="li-3">Mathematics</li>
-            <li class="li-7">History</li></div>
-            <div class="right-2"><li class="li-4">Biology</li>
-              <li class="li-5">Physics</li>
-            <li class="li-6">Future IT developer</li>
-            <li>Sport</li></div>
-            
-          </div>
-        </ul>
-</div>
-
-<div class="Work-Experience">
-  <h2 class="Head"><span class="nav-letter" data-nav="W">W</span>Work Experience</h2>
-  <div><table class="table-6"></table></div>
-  <div class="work-parent">
-  <div class="WE1"><strong class="Name">Name of employer:</strong> Ciklum, Vinnytsia <br />
-    <strong class="Dates-1">Dates of employment:</strong> 07/2021 - present <br />
-    <strong class="Job-1">Job title:</strong> Senior Frontend Developer <br />
-    <strong class="Project-1">Project/Role description:</strong> Project TUI (https://tui.co.uk). Front-end development (React, storeon, ES6, <br />
-     RollUp, SCSS, web components, micro frontend approach). <br />
-    Development and supporting payment page for the biggest EU travel agency. Using a micro front-end <br />
-     approach to be able to integrate the solution in different products of the company
-    </div>
-    <div class="WE2"><strong class="Name-2">Name of employer:</strong> Visme.co, remote, contract <br />
-      <strong class="Dates-2">Dates of employment:</strong> 09/2020 - 05/2022 <br />
-      <strong class="Job-2">Job title:</strong> Senior Software Engineer/Team Lead of Mobile department <br />
-      <strong class="Project-2">Project/Role description:</strong> Developing a mobile application for visualization SaaS application: working with <br /> 
-      the team from all around the world I, as a senior engineer, took part in creating an application for the SaaS <br /> 
-      platform using React Native and reused up to 70% of the already existing codebase for business logic. <br /> 
-      Leaded team of four people, my responsibilities in this role are onboarding, mentoring, prioritization, and <br />
-       allocation of tasks to team members load
-      </div>
-    </div>
-</div>
-
-
-
-<div>
-  <h2 class="Education"><span class="nav-letter" data-nav="E">E</span>Education</h2>
-  <div><table class="table-5"></table></div>
-  <p class="Education-2"><strong class="Dates">Dates of studying:</strong> from 2014
-    <br/>
-  <strong class="Name-3">Name of school:</strong><a href="https://boryspil.city/top/boryspil-nec-specialized-school-zosh-no-5.html" target="_blank" class="link-5"> Secondary school №5 named after K. Mohylko</a></p>
-</div>
-
-<div id="my-projects">
-  <h2 class="My-prj"><span class="nav-letter" data-nav="M">M</span>My projects</h2>
-  <div><table class="table-8"></table></div>
-  <ul id="project-list" class="links"></ul>
-</div>
-
-
-</div>
-
-</div>
-
-<script src="./script.js"></script>
 </body>
 </html>
