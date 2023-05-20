@@ -1,16 +1,26 @@
-import './App.css';
-import { Contact } from './fgh/Contact';
-import { Experience } from './fgh/Info';
-import Image from './fgh/ImageComponent';
+import React, { useState } from "react";
+import JobForm from "./components/JobForm";
+import JobListing from "./components/JobListing";
+import Counter from "./Counter/counter";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [jobs, setJobs] = useState([]);
+
+  const addJob = (job) => {
+    setJobs([...jobs, job]);
+  };
+
   return (
-<div className='fp'>
-  <Image imagePath="./images/image.jpg"/>
-  <Contact />
-  <Experience />
-  </div>
+    <div className="fp">
+      <h1 className="jb">Job Listings</h1>
+      <JobForm addJob={addJob} />
+      <JobListing jobs={jobs} />
+
+      <h1 className="count">My Counter App</h1>
+      <Counter />
+    </div>
   );
-}
+};
 
 export default App;

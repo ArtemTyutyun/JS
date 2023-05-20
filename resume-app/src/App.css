@@ -41,3 +41,44 @@
   margin-left: 20px;
   margin-top: 20px;
 }
+
+.count {
+  margin-top: 100px;
+}
+
+.list {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.add {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.jb {
+  text-align: center;
+  justify-content: center; 
+}
+
+.desc,
+.tit,
+.name,
+.link {
+  margin-left: 20px;
+  margin-right: 3px;
+}
+
+.sub {
+width: 50px;
+padding: 3px;
+border-radius: 10px;
+border: black solid 2px;
+margin-left: 20px;
+}
+
+.inp {
+ border: black solid 2px;
+  padding: 3px;
+  border-radius: 10px;
+}
